@@ -17,13 +17,19 @@ config/icon="res://etc/cool.png"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1080
-window/size/resizable=false
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/size/always_on_top=true
-window/stretch/scale=4.0
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.0980392, 0.0941176, 0.164706, 1)
+environment/defaults/default_clear_color=Color(0.0313726, 0.027451, 0.0666667, 1)
+environment/size/viewport_height=1080
+environment/size/viewport_width=1920
+environment/stretch/scale=4.0
+environment/size/resizable=false
+environment/stretch/aspect="keep"
+environment/stretch/mode="canvas_items"

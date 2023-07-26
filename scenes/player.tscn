@@ -23,25 +23,30 @@ particle_flag_disable_z = true
 direction = Vector3(-1, 0, 0)
 spread = 15.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 105.0
-initial_velocity_max = 200.0
+initial_velocity_min = 17.21
+initial_velocity_max = 30.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 linear_accel_min = -2.0
 linear_accel_max = -1.0
-scale_min = 0.25
+scale_min = 0.0
+scale_max = 0.2
 scale_curve = SubResource("CurveTexture_fkjua")
 color_ramp = SubResource("GradientTexture1D_e2cnn")
 
-[node name="player" type="Node2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_87j1t")
-max_speed = 200.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 5, -8, -5, 9, 0)
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_fx7ny")
 
-[node name="engine_particles" type="GPUParticles2D" parent="sprite"]
-position = Vector2(-12.5, 0)
-amount = 128
+[node name="engine_particles" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(-4, 0)
+amount = 10
 process_material = SubResource("ParticleProcessMaterial_m5af1")
 texture = ExtResource("3_auxy0")
+lifetime = 0.2
