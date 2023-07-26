@@ -6,24 +6,31 @@
 [ext_resource type="AudioStream" uid="uid://dw2uonuf4jblm" path="res://audio/music/Epicness Calling full loop.wav" id="4_45lnt"]
 
 [node name="main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_3xt6d")
 
 [node name="Scene" type="Node2D" parent="."]
+process_mode = 3
 
 [node name="title" parent="Scene" instance=ExtResource("1_ylbqe")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 3
 environment = ExtResource("1_a8uq3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("4_45lnt")
 autoplay = true
 bus = &"Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+process_mode = 3
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
