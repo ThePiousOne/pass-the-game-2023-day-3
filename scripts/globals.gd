@@ -1,10 +1,12 @@
 extends Node
 
 var total_seconds := 0.0
+var player_location = null
 
 
 func reset_game():
 	total_seconds = 0.0
+	player_location = null
 
 
 func shake_screen(duration = 0.1, frequency = 12, amplitude_param = 10):

@@ -35,6 +35,8 @@ scale_curve = SubResource("CurveTexture_p3ti1")
 color_ramp = SubResource("GradientTexture1D_2jcnj")
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_87j1t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -50,3 +52,10 @@ amount = 10
 process_material = SubResource("ParticleProcessMaterial_m5af1")
 texture = ExtResource("3_auxy0")
 lifetime = 0.2
+
+[node name="ShootCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ShootFrom" type="Marker2D" parent="."]
+position = Vector2(8, 0)

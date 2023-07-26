@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvwc0irpodann"]
+[gd_scene load_steps=9 format=3 uid="uid://dvwc0irpodann"]
 
 [ext_resource type="Script" path="res://scripts/audio.gd" id="1_lhn4q"]
 [ext_resource type="AudioStream" uid="uid://bnjecddvcd4p5" path="res://audio/sfx/menu_back.wav" id="2_jwau2"]
 [ext_resource type="AudioStream" uid="uid://y0pul6585jc" path="res://audio/sfx/menu_changed.wav" id="3_h7cyi"]
 [ext_resource type="AudioStream" uid="uid://b0m1yxnyjv4jj" path="res://audio/sfx/menu_select.wav" id="3_xu51y"]
 [ext_resource type="AudioStream" uid="uid://donhua5bdxxfg" path="res://audio/sfx/hit.wav" id="4_6jcei"]
+[ext_resource type="AudioStream" uid="uid://c8es7auwdx3et" path="res://audio/sfx/shoot.wav" id="5_5ousl"]
+[ext_resource type="AudioStream" uid="uid://dhbalhxh3cnwb" path="res://audio/sfx/enemy-hit.wav" id="5_hrkts"]
+[ext_resource type="AudioStream" uid="uid://ytke6hr48sjd" path="res://audio/sfx/enemy-die.wav" id="6_spxw4"]
 
 [node name="Audio" type="Node2D"]
 script = ExtResource("1_lhn4q")
@@ -22,6 +25,23 @@ bus = &"SFX"
 [node name="hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6jcei")
 volume_db = -10.929
+bus = &"SFX"
+
+[node name="enemy-hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hrkts")
+volume_db = -10.929
+bus = &"SFX"
+
+[node name="enemy-die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_spxw4")
+volume_db = -10.929
+pitch_scale = 1.32
+bus = &"SFX"
+
+[node name="shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5ousl")
+volume_db = -10.929
+pitch_scale = 2.92
 bus = &"SFX"
 
 [node name="menu-changed" type="AudioStreamPlayer" parent="."]
