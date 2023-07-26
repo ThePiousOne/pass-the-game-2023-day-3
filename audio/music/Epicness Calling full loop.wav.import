@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dw2uonuf4jblm"
+path="res://.godot/imported/Epicness Calling full loop.wav-d6e729a1c9e7e0acd4760a47be27b85b.sample"
+
+[deps]
+
+source_file="res://audio/music/Epicness Calling full loop.wav"
+dest_files=["res://.godot/imported/Epicness Calling full loop.wav-d6e729a1c9e7e0acd4760a47be27b85b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

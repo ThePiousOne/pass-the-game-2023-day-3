@@ -1,0 +1,132 @@
+[gd_scene load_steps=4 format=3 uid="uid://cam67p58odqb5"]
+
+[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_633be"]
+[ext_resource type="Theme" uid="uid://dxjcv6y7qoybk" path="res://theme.tres" id="2_mmjji"]
+[ext_resource type="PackedScene" uid="uid://4ko233cyvmvj" path="res://scenes/menu.tscn" id="3_rktdk"]
+
+[node name="SettingsMenu" type="MarginContainer"]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 140
+script = ExtResource("1_633be")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_mmjji")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Settings"
+
+[node name="Menu" parent="VBoxContainer" instance=ExtResource("3_rktdk")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Menu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_mmjji")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_mmjji")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mmjji")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "SFX Volume"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("2_mmjji")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "FullScreen"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(201, 0)
+layout_mode = 2
+
+[connection signal="focus_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="focus_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer3/MusicVolumeSlider" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer3/MusicVolumeSlider" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer3/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="focus_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer2/SfxVolumeSlider" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer2/SfxVolumeSlider" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer2/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="focus_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer4/FullscreenCheckBox" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer4/FullscreenCheckBox" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="VBoxContainer/Menu/MarginContainer/VBoxContainer/HBoxContainer4/FullscreenCheckBox" to="." method="_on_check_box_toggled"]

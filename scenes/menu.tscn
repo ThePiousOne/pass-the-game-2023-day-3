@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ko233cyvmvj"]
+
+[ext_resource type="Texture2D" uid="uid://c1to5dts021g7" path="res://sprites/9patch.png" id="1_w14sy"]
+
+[node name="MenuBorder" type="NinePatchRect"]
+offset_right = 65.0
+offset_bottom = 41.0
+texture = ExtResource("1_w14sy")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4

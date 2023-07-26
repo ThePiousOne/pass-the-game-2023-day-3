@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=3 uid="uid://coisr33li6ctk"]
+
+[ext_resource type="Texture2D" uid="uid://btju0fq8kqjo4" path="res://sprites/circle.png" id="1_kq28r"]
+[ext_resource type="FontFile" uid="uid://cf44ojrcgfg2u" path="res://fonts/PixeloidSans-Bold.ttf" id="1_m2mi1"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_n21qy"]
+[ext_resource type="PackedScene" uid="uid://4ko233cyvmvj" path="res://scenes/menu.tscn" id="4_m2bpl"]
+[ext_resource type="Theme" uid="uid://dxjcv6y7qoybk" path="res://theme.tres" id="5_fd42a"]
+[ext_resource type="PackedScene" uid="uid://cam67p58odqb5" path="res://scenes/settings_menu.tscn" id="6_5yof7"]
+[ext_resource type="PackedScene" uid="uid://sjwjjpsx8r6v" path="res://scenes/credits_menu.tscn" id="6_d753a"]
+
+[sub_resource type="Gradient" id="Gradient_v21fe"]
+offsets = PackedFloat32Array(0, 0.0738916, 0.26601, 0.458128, 0.596059, 0.748768, 1)
+colors = PackedColorArray(0.917647, 0.380392, 0.615686, 1, 0.560784, 0.239216, 0.654902, 1, 0.709804, 0.254902, 0.192157, 1, 0.768627, 0.396078, 0.109804, 1, 0.952941, 0.760784, 0.12549, 1, 0.756863, 0.898039, 0.917647, 0.898039, 0.0980392, 0.0941176, 0.164706, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jh8ti"]
+gradient = SubResource("Gradient_v21fe")
+
+[sub_resource type="Curve" id="Curve_gixxm"]
+_data = [Vector2(0.0566802, 0.16726), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hnaa8"]
+curve = SubResource("Curve_gixxm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2bge5"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 1200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -2.0
+linear_accel_max = -1.0
+scale_min = 0.6
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_hnaa8")
+color_ramp = SubResource("GradientTexture1D_jh8ti")
+
+[node name="title" type="Node2D"]
+script = ExtResource("1_n21qy")
+
+[node name="engine_particles" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(674, 278)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_2bge5")
+texture = ExtResource("1_kq28r")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 36.0
+offset_right = 515.0
+offset_bottom = 156.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("1_m2mi1")
+theme_override_font_sizes/font_size = 46
+text = "Can't Stop
+Must Survive"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OuterContainer" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+
+[node name="MenuContainer" type="MarginContainer" parent="OuterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 140
+
+[node name="Menu" parent="OuterContainer/MenuContainer" instance=ExtResource("4_m2bpl")]
+modulate = Color(1, 1, 1, 0.862745)
+layout_mode = 2
+
+[node name="ButtonContainer" type="MarginContainer" parent="OuterContainer/MenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="Buttons" type="VBoxContainer" parent="OuterContainer/MenuContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="OuterContainer/MenuContainer/ButtonContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_fd42a")
+theme_override_font_sizes/font_size = 16
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="OuterContainer/MenuContainer/ButtonContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_fd42a")
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+
+[node name="Credits" type="Button" parent="OuterContainer/MenuContainer/ButtonContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_fd42a")
+theme_override_font_sizes/font_size = 16
+text = "Credits"
+
+[node name="Quit" type="Button" parent="OuterContainer/MenuContainer/ButtonContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_fd42a")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("6_5yof7")]
+unique_name_in_owner = true
+process_mode = 4
+offset_top = 360.0
+offset_bottom = 720.0
+
+[node name="CreditsMenu" parent="CanvasLayer" instance=ExtResource("6_d753a")]
+unique_name_in_owner = true
+process_mode = 4
+offset_top = 360.0
+offset_bottom = 720.0
+
+[connection signal="focus_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/StartGame" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/StartGame" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="focus_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Settings" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Settings" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Credits" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Credits" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Quit" to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Quit" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="OuterContainer/MenuContainer/ButtonContainer/Buttons/Quit" to="." method="_on_quit_pressed"]

@@ -61,5 +61,7 @@ func _physics_process(_delta):
 		var collision := get_slide_collision(index)
 		var collision_normal := collision.get_normal()
 		velocity += collision_normal * current_speed / 2
+		Audio.play_sound("hit")
+		Globals.shake_screen()
 
 
