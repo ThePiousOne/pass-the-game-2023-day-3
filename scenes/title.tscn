@@ -95,15 +95,10 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_m2mi1")
 theme_override_font_sizes/font_size = 10
-text = "Controls
+text = "Left Mouse - Shoot and Boost
 
-Left Mouse - Shoot and Boost
-
-Gain speed to be able to 
-shoot and deal damage
-by bumping into things!
-
-Vulnerable when slow!"
+Gain speed to shoot and 
+be invulnerable!"
 horizontal_alignment = 1
 
 [node name="OuterContainer" type="MarginContainer" parent="."]

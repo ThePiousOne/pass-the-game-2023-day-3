@@ -62,7 +62,7 @@ text = "Created for the \"Pass the GAME Challenge 2023\" Game Jam
 
 Day 1: https://ghost-wave.itch.io/space-flight-godot-4
 Day 2: https://made-by-gare.itch.io/cant-stop-must-survive
-Day 3: "
+Day 3: https://thepious.itch.io/cant-stop-must-survive-speed-survivors"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="VBoxContainer/Menu/MarginContainer/ScrollContainer/VBoxContainer"]
