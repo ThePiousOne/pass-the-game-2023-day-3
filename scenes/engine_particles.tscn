@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv2gi14e5mivn"]
+
+[ext_resource type="Texture2D" uid="uid://btju0fq8kqjo4" path="res://sprites/circle.png" id="1_q7mtl"]
+
+[sub_resource type="Gradient" id="Gradient_xitfq"]
+offsets = PackedFloat32Array(0, 0.0738916, 0.26601, 0.458128, 0.596059, 0.748768, 1)
+colors = PackedColorArray(0.917647, 0.380392, 0.615686, 1, 0.560784, 0.239216, 0.654902, 1, 0.709804, 0.254902, 0.192157, 1, 0.768627, 0.396078, 0.109804, 1, 0.952941, 0.760784, 0.12549, 1, 0.756863, 0.898039, 0.917647, 1, 0.0980392, 0.0941176, 0.164706, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2jcnj"]
+gradient = SubResource("Gradient_xitfq")
+
+[sub_resource type="Curve" id="Curve_5ojhy"]
+_data = [Vector2(0.0566802, 0.16726), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p3ti1"]
+curve = SubResource("Curve_5ojhy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5af1"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 17.21
+initial_velocity_max = 30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -2.0
+linear_accel_max = -1.0
+scale_min = 0.0
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_p3ti1")
+color_ramp = SubResource("GradientTexture1D_2jcnj")
+
+[node name="engine_particles" type="GPUParticles2D"]
+z_index = -1
+position = Vector2(-4, 0)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_m5af1")
+texture = ExtResource("1_q7mtl")
+lifetime = 0.2

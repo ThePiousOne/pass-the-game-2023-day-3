@@ -7,6 +7,33 @@
 radius = 5.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_atkgd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_0nr67"]
 resource_name = "walk"
 length = 0.4
@@ -36,40 +63,13 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1.05)]
 }
 
-[sub_resource type="Animation" id="Animation_atkgd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4jjgt"]
 _data = {
 "RESET": SubResource("Animation_atkgd"),
 "walk": SubResource("Animation_0nr67")
 }
 
-[node name="Skeleton" type="CharacterBody2D"]
+[node name="Skeleton" type="CharacterBody2D" groups=["Enemy"]]
 collision_mask = 5
 script = ExtResource("1_bqo22")
 
@@ -89,10 +89,9 @@ libraries = {
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 10
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_71o8p")
 
 [connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
